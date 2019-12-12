@@ -1,0 +1,13 @@
+* stumpwm.d
+  This is a personal configuration of [[https://github.com/stumpwm/stumpwm][StumpWM]] — a tiling, keyboard driven X11
+  Window Manager written entirely in [[https://en.wikipedia.org/wiki/Common_Lisp][Common Lisp]].
+
+** Installation
+   #+begin_src shell
+     git clone --recurse-submodules git@github.com:madand/stumpwm.d.git ~/.stumpwm.d
+   #+end_src
+
+** License
+   [[https://creativecommons.org/publicdomain/zero/1.0/][https://licensebuttons.net/p/zero/1.0/88x31.png]]\\
+
+   This work by [[https://github.com/madand][Andriy Kmit]] is licensed [[https://creativecommons.org/publicdomain/zero/1.0/][CC0]]. Zero rights reserved.
