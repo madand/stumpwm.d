@@ -1,0 +1,3 @@
+[submodule "contrib"]
+	path = modules
+	url = git@github.com:madand/stumpwm-contrib.git
