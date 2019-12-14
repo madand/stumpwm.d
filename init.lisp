@@ -1,17 +1,25 @@
-;; -*-lisp-*-
+(in-package #:stumpwm-user)
 
-(in-package :stumpwm-user)
+;;; Add command for starting a slynk REPL server.
+;; We do this right here, not inside of the config system, to ensure the REPL
+;; is available even when the config system fails to build/load.
 
-;;;; Slynk REPL server.
-
-(defvar *slynk-port* 4009
+(defvar *repl-port* 4009
   "Port to start the REPL socket on.")
 
-(ql:quickload "slynk")
-(slynk:create-server :port *slynk-port*
-                     :dont-close t)
+(stumpwm:defcommand start-repl () ()
+  "Start REPL server on *REPL-PORT*."
+  (ql:quickload "slynk")
+  (handler-case
+      (progn
+        (funcall (intern (string '#:create-server) '#:slynk)
+                 :port *repl-port*
+                 :dont-close t)
+        (stumpwm:message "REPL started on localhost:~d" *repl-port*))
+    (sb-bsd-sockets:address-in-use-error ()
+      (stumpwm:echo "REPL is aready running."))))
 
-;;;;
-(add-to-load-path "~/.stumpwm.d/modules/")
+
 
-;; (define-key )
+;; Load a system with custom StumpWM configuration.
+(ql:quickload "stumpwm.d")
