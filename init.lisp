@@ -23,3 +23,7 @@
 
 ;; Load a system with custom StumpWM configuration.
 (ql:quickload "stumpwm.d")
+
+;; Clean-up the environment after `ros qlot`.
+(dolist (env-var '("CL_SOURCE_REGISTRY" "QUICKLISP_HOME" "ROS_OPTS"))
+  (sb-posix:unsetenv env-var))
