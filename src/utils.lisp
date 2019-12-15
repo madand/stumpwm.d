@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage :stumpwm.d/utils
   (:documentation "StumpWM configuration utilities.")
   (:use #:cl)

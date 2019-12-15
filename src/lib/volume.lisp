@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/lib/volume
   (:documentation "Volume control via amixer(1).")
   (:use #:cl)

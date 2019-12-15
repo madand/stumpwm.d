@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/groups
   (:documentation "Groups configuration.")
   (:use #:cl)

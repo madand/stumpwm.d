@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/autostart
   (:documentation "Autostart of various non StumpWM-related stuff.")
   (:use #:cl)

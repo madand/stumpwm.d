@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/lib/kbdlayout
   (:documentation "Per-window keyboard layout management via setxkbmap(1).")
   (:use #:cl)

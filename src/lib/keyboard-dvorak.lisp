@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/lib/keyboard-dvorak
   (:documentation "Utilities for dealing with Programmer Dvorak layout.")
   (:use #:cl)

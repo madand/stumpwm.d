@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (in-package #:stumpwm-user)
 
 ;;; Add command for starting a slynk REPL server.

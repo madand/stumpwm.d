@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/variables
   (:documentation "Global configuration variables.")
   (:use #:cl)

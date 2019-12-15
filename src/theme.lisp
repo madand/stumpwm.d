@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/theme
   (:documentation "Solarized dark colors for StumpWM.")
   (:use #:cl #:alexandria)

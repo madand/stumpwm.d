@@ -1,3 +1,5 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/main
   (:documentation "Entry file for StumpWM configuration system.")
   (:nicknames #:stumpwm.d)

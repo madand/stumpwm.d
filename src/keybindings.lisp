@@ -1,26 +1,19 @@
+;; -*- common-lisp-style: modern -*-
+
 (defpackage #:stumpwm.d/keybindings
   (:documentation "Main key bindings.")
   (:use #:cl)
   (:local-nicknames
    (#:a #:alexandria)
-   (#:swm #:stumpwm)
-   (#:vars #:stumpwm.d/variables))
+   (#:swm #:stumpwm))
   (:import-from #:stumpwm
                 #:kbd
                 #:define-key
                 #:*top-map*)
-  (:import-from #:stumpwm.d/utils
-                #:format-exec-in-terminal)
   (:import-from #:stumpwm.d/lib/keyboard-dvorak)
-  (:import-from #:stumpwm.d/lib/volume))
+  (:import-from #:stumpwm.d/lib/volume)
+  (:import-from #:stumpwm.d/keybindings-apps))
 (in-package #:stumpwm.d/keybindings)
-
-;; Program shortcuts.
-(define-key *top-map* (kbd "s-RET") (format nil "exec ~A" vars:*terminal-cmd*))
-(define-key *top-map* (kbd "s-b") "exec firefox")
-(define-key *top-map* (kbd "s-c") (format-exec-in-terminal "twitch-curses"))
-(define-key *top-map* (kbd "s-t") (format-exec-in-terminal "htop"))
-(define-key *top-map* (kbd "s-v") (format-exec-in-terminal "vifm"))
 
 (define-key *top-map* (kbd "s-TAB") "pull-hidden-other")
 (define-key *top-map* (kbd "s-j") "next")
