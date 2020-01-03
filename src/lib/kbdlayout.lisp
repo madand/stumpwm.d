@@ -49,8 +49,8 @@
 (defun make-keyboard-layout (name xkb-layout xkb-variant)
   "Constructor for keyboard-layout instances."
   (make-instance 'keyboard-layout :name name
-                 :xkb-layout xkb-layout
-                 :xkb-variant xkb-variant))
+                                  :xkb-layout xkb-layout
+                                  :xkb-variant xkb-variant))
 
 (defmethod print-object ((obj keyboard-layout) stream)
   (print-unreadable-object (obj stream :type t)

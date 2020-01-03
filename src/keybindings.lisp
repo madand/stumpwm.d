@@ -69,13 +69,19 @@
 (define-key *top-map* (kbd "s-;") "colon")
 (define-key *top-map* (kbd "s-SPC") "windowlist")
 
-;; Volume control.
+;;; ----------------------------------------------------------------------------
+;;; Volume control
+;;; ----------------------------------------------------------------------------
+
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-down")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-up")
 (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle-output")
 (define-key *top-map* (kbd "XF86AudioMicMute") "volume-toggle-microphone")
 
-;; MPD control.
+;;; ----------------------------------------------------------------------------
+;;; MPD control
+;;; ----------------------------------------------------------------------------
+
 (define-key *top-map* (kbd "XF86AudioPlay") "exec mpc toggle")
 (define-key *top-map* (kbd "XF86AudioNext") "exec mpc next")
 (define-key *top-map* (kbd "XF86AudioPrev") "exec mpc prev")
@@ -84,7 +90,10 @@
 (define-key *top-map* (kbd "XF86MonBrightnessUp") "exec brightness max")
 (define-key *top-map* (kbd "XF86MonBrightnessDown") "exec brightness min")
 
-;; Menu mode bindings.
+;;; ----------------------------------------------------------------------------
+;;; Menu mode bindings
+;;; ----------------------------------------------------------------------------
+
 (define-key swm:*menu-map* (kbd "C-m") 'swm:menu-finish)
 (define-key swm:*menu-map* (kbd "C-h") 'swm:menu-backspace)
 (define-key swm:*menu-map* (kbd "C-j") 'swm:menu-down)
@@ -94,7 +103,10 @@
 ;; ISO_Left_Tab == Shift-TAB
 (define-key swm:*menu-map* (kbd "ISO_Left_Tab") 'swm:menu-up)
 
-;; Input mode bindings.
+;;; ----------------------------------------------------------------------------
+;;; Input mode bindings
+;;; ----------------------------------------------------------------------------
+
 (define-key swm:*input-map* (kbd "C-m") 'swm::input-submit)
 (define-key swm:*input-map* (kbd "C-h") 'swm::input-delete-backward-char)
 (define-key swm:*input-map* (kbd "C-w") 'swm::input-backward-kill-word)

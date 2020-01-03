@@ -1,7 +1,7 @@
 ;;; -*- mode:lisp -*-
 
 #-asdf3.3
-(error "This systems needs at least ASDF 3.3.3.3 with :local-nicknames support.")
+(error "The system requires at least ASDF 3.3.3.3 with :local-nicknames support.")
 
 (asdf:defsystem "stumpwm.d"
   :version      "0.1.0"
