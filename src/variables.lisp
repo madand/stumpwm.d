@@ -6,7 +6,8 @@
   (:import-from #:stumpwm)
   (:export
    #:*terminal-cmd*
-   #:*font*))
+   #:*font*
+   #:*bg-image*))
 (in-package #:stumpwm.d/variables)
 
 ;;;; StumpWM's variables
@@ -26,3 +27,6 @@
 
 (defparameter *terminal-cmd* "urxvt"
   "Terminal emulator.")
+
+(defvar *bg-image* "~/media/PhoneCamera/OpenCamera/IMG_20190825_180322.jpg"
+  "Desktop background image.")
