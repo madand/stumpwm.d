@@ -11,11 +11,11 @@
    #:*volume-change-output-filter-cmd*))
 (in-package #:stumpwm.d/lib/volume)
 
-(defparameter *mixer-command* "amixer")
-(defparameter *output-channel* "Master")
-(defparameter *microphone-channel* "Capture")
-(defparameter *volume-step* "2%")
-(defparameter *volume-change-output-filter-cmd* "egrep '\\[[[:digit:]]+%\\]'")
+(defvar *mixer-command* "amixer")
+(defvar *output-channel* "Master")
+(defvar *microphone-channel* "Capture")
+(defvar *volume-step* "2%")
+(defvar *volume-change-output-filter-cmd* "egrep '\\[[[:digit:]]+%\\]'")
 
 ;;;-----------------------------------------------------------------------------
 

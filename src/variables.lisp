@@ -22,10 +22,10 @@
 
 ;;;; Custom variables
 
-(defparameter *font* '(:family "Iosevka SS09" :subfamily "Regular" :size 14)
+(defvar *font* '(:family "Iosevka SS09" :subfamily "Regular" :size 14)
   "Font specification as initargs for 'clx-truetype:font.")
 
-(defparameter *terminal-cmd* "urxvt"
+(defvar *terminal-cmd* "urxvt"
   "Terminal emulator.")
 
 (defvar *bg-image* "~/media/PhoneCamera/OpenCamera/IMG_20190825_180322.jpg"
