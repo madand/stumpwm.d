@@ -12,7 +12,7 @@
 (in-package #:stumpwm.d/groups)
 
 ;;; ----------------------------------------------------------------------------
-;;; Keybindings.
+;;; Keybindings
 ;;; ----------------------------------------------------------------------------
 
 ;; Select groups with Win + digit (0-9).
@@ -24,5 +24,25 @@
     (define-key *top-map* (kbd (format nil "s-~a" dvorak-key)) command)))
 
 ;;;-----------------------------------------------------------------------------
-;;; Group definitions.
+;;; Additional groups
 ;;;-----------------------------------------------------------------------------
+
+(defvar *desired-groups-count* 10
+  "How many groups we want to end up with.")
+
+(defun existing-groups-count (&optional (screen (swm:current-screen)))
+  "Return count of existing groups of the screen."
+  (length (swm:screen-groups screen)))
+
+(defun ensure-groups-count (&optional (screen (swm:current-screen)))
+  "Add new groups to the SCREEN until we have the desired number of them.
+Each group is named after its number. See ‘*desired-groups-count*’."
+  (loop :with existing-count := (existing-groups-count screen)
+        :with initial-index := (1+ existing-count)
+        :with last-index := *desired-groups-count*
+        :for n :from initial-index :upto last-index
+        :do (swm:add-group screen (write-to-string n) :background t)))
+
+;; Create 9 additional groups, since StumpWM creates the first one by itself.
+(when swm:*initializing*
+  (ensure-groups-count))
