@@ -79,12 +79,10 @@
 
   ;; Set *colors*
   ;; ("black" "red" "green" "yellow" "blue" "magenta" "cyan" "white")
-  (setf stumpwm:*colors* (list +base1+
+  (setf stumpwm:*colors* (list +base0+
                                +red+ +green+ +yellow+ +blue+ +magenta+ +cyan+
                                +base03+))
-  ;; Toggle the mode line so that changes are applied
-  (stumpwm:toggle-mode-line (stumpwm:current-screen) (stumpwm:current-head))
-  (stumpwm:toggle-mode-line (stumpwm:current-screen) (stumpwm:current-head)))
+  (stumpwm:update-color-map (stumpwm:current-screen)))
 
 (defun setup-font ()
   (clx-truetype:cache-fonts)
