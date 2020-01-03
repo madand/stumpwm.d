@@ -2,14 +2,14 @@
 
 (defpackage :stumpwm.d/utils
   (:documentation "StumpWM configuration utilities.")
-  (:use #:cl)
+  (:use :cl)
   (:local-nicknames
-   (#:swm #:stumpwm))
-  (:import-from #:stumpwm.d/variables
+   (#:swm :stumpwm))
+  (:import-from :stumpwm.d/variables
                 #:*terminal-cmd*)
   (:export
    #:format-exec-in-terminal))
-(in-package #:stumpwm.d/utils)
+(in-package :stumpwm.d/utils)
 
 (defun format-exec-in-terminal (command)
   "Build exec command with the terminal emulatior. See *TERMINAL-CMD*."

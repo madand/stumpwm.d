@@ -1,18 +1,18 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/keybindings-apps
+(defpackage :stumpwm.d/keybindings-apps
   (:documentation "Keybindings for launching applications.")
-  (:use #:cl)
+  (:use :cl)
   (:local-nicknames
-   (#:swm #:stumpwm)
-   (#:vars #:stumpwm.d/variables))
-  (:import-from #:stumpwm
+   (#:swm :stumpwm)
+   (#:vars :stumpwm.d/variables))
+  (:import-from :stumpwm
                 #:kbd
                 #:define-key
                 #:*top-map*)
-  (:import-from #:stumpwm.d/utils
+  (:import-from :stumpwm.d/utils
                 #:format-exec-in-terminal))
-(in-package #:stumpwm.d/keybindings-apps)
+(in-package :stumpwm.d/keybindings-apps)
 
 ;;; ----------------------------------------------------------------------------
 ;;; Top level bindings for most frequently used apps

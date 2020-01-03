@@ -1,15 +1,15 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/groups
+(defpackage :stumpwm.d/groups
   (:documentation "Groups configuration.")
-  (:use #:cl)
-  (:local-nicknames (#:swm #:stumpwm))
-  (:import-from #:stumpwm
+  (:use :cl)
+  (:local-nicknames (#:swm :stumpwm))
+  (:import-from :stumpwm
                 #:kbd
                 #:define-key
                 #:*top-map*)
-  (:import-from #:stumpwm.d/lib/keyboard-dvorak))
-(in-package #:stumpwm.d/groups)
+  (:import-from :stumpwm.d/lib/keyboard-dvorak))
+(in-package :stumpwm.d/groups)
 
 ;;; ----------------------------------------------------------------------------
 ;;; Keybindings

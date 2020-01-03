@@ -1,14 +1,14 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/variables
+(defpackage :stumpwm.d/variables
   (:documentation "Global configuration variables.")
-  (:use #:cl)
-  (:import-from #:stumpwm)
+  (:use :cl)
+  (:import-from :stumpwm)
   (:export
    #:*terminal-cmd*
    #:*font*
    #:*bg-image*))
-(in-package #:stumpwm.d/variables)
+(in-package :stumpwm.d/variables)
 
 ;;;; StumpWM's variables
 

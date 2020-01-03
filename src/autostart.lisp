@@ -1,12 +1,12 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/autostart
+(defpackage :stumpwm.d/autostart
   (:documentation "Autostart of various non StumpWM-related stuff.")
-  (:use #:cl)
+  (:use :cl)
   (:local-nicknames
-   (#:swm #:stumpwm)
-   (#:vars #:stumpwm.d/variables)))
-(in-package #:stumpwm.d/autostart)
+   (#:swm :stumpwm)
+   (#:vars :stumpwm.d/variables)))
+(in-package :stumpwm.d/autostart)
 
 (when swm:*initializing*
   ;; Set desktop background.

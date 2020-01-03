@@ -1,18 +1,18 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/lib/kbdlayout
+(defpackage :stumpwm.d/lib/kbdlayout
   (:documentation "Per-window keyboard layout management via setxkbmap(1).")
-  (:use #:cl)
+  (:use :cl)
   (:local-nicknames
-   (#:a #:alexandria)
-   (#:swm #:stumpwm))
-  (:import-from #:stumpwm)
+   (#:a :alexandria)
+   (#:swm :stumpwm))
+  (:import-from :stumpwm)
   (:export
    #:configure-layouts
    #:register-hooks
    #:remove-hooks
    #:*run-xmodmap-p*))
-(in-package #:stumpwm.d/lib/kbdlayout)
+(in-package :stumpwm.d/lib/kbdlayout)
 
 ;;;-----------------------------------------------------------------------------
 ;;; Configuration variables

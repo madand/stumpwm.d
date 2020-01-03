@@ -1,21 +1,21 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/main
+(defpackage :stumpwm.d/main
   (:documentation "Entry file for StumpWM configuration system.")
-  (:nicknames #:stumpwm.d)
-  (:use #:cl)
+  (:nicknames :stumpwm.d)
+  (:use :cl)
   (:local-nicknames
-   (#:kbdlayout #:stumpwm.d/lib/kbdlayout)
-   (#:theme #:stumpwm.d/theme))
-  (:import-from #:stumpwm
+   (#:kbdlayout :stumpwm.d/lib/kbdlayout)
+   (#:theme :stumpwm.d/theme))
+  (:import-from :stumpwm
                 #:kbd
                 #:define-key
                 #:*top-map*)
-  (:import-from #:stumpwm.d/variables)
-  (:import-from #:stumpwm.d/autostart)
-  (:import-from #:stumpwm.d/keybindings)
-  (:import-from #:stumpwm.d/groups))
-(in-package #:stumpwm.d/main)
+  (:import-from :stumpwm.d/variables)
+  (:import-from :stumpwm.d/autostart)
+  (:import-from :stumpwm.d/keybindings)
+  (:import-from :stumpwm.d/groups))
+(in-package :stumpwm.d/main)
 
 ;;; ----------------------------------------------------------------------------
 ;;; Per-window keyboard layout.

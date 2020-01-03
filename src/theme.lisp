@@ -1,12 +1,14 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/theme
-  (:documentation "Solarized dark colors for StumpWM.")
-  (:use #:cl #:alexandria)
-  (:import-from #:stumpwm)
-  (:import-from #:clx-truetype)
-  (:import-from #:ttf-fonts)
-  (:import-from #:stumpwm.d/variables)
+(defpackage :stumpwm.d/theme
+  (:documentation "Solarized Dark colors and font setup.")
+  (:use :cl)
+  (:local-nicknames
+   (#:a :alexandria)
+   (#:swm :stumpwm)
+   (#:vars :stumpwm.d/variables))
+  (:import-from :clx-truetype)
+  (:import-from :ttf-fonts)
   (:export
    #:+base03+
    #:+base02+
@@ -26,7 +28,7 @@
    #:+green+
    #:setup-solarized-dark
    #:setup-font))
-(in-package #:stumpwm.d/theme)
+(in-package :stumpwm.d/theme)
 
 ;; https://ethanschoonover.com/solarized/#usage-development
 ;; SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
@@ -48,43 +50,42 @@
 ;; cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
 ;; green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
 
-(define-constant +base03+  "#002b36" :test 'equal)
-(define-constant +base02+  "#073642" :test 'equal)
-(define-constant +base01+  "#586e75" :test 'equal)
-(define-constant +base00+  "#657b83" :test 'equal)
-(define-constant +base0+   "#839496" :test 'equal)
-(define-constant +base1+   "#93a1a1" :test 'equal)
-(define-constant +base2+   "#eee8d5" :test 'equal)
-(define-constant +base3+   "#fdf6e3" :test 'equal)
-(define-constant +yellow+  "#b58900" :test 'equal)
-(define-constant +orange+  "#cb4b16" :test 'equal)
-(define-constant +red+     "#dc322f" :test 'equal)
-(define-constant +magenta+ "#d33682" :test 'equal)
-(define-constant +violet+  "#6c71c4" :test 'equal)
-(define-constant +blue+    "#268bd2" :test 'equal)
-(define-constant +cyan+    "#2aa198" :test 'equal)
-(define-constant +green+   "#859900" :test 'equal)
+(a:define-constant +base03+  "#002b36" :test 'equal)
+(a:define-constant +base02+  "#073642" :test 'equal)
+(a:define-constant +base01+  "#586e75" :test 'equal)
+(a:define-constant +base00+  "#657b83" :test 'equal)
+(a:define-constant +base0+   "#839496" :test 'equal)
+(a:define-constant +base1+   "#93a1a1" :test 'equal)
+(a:define-constant +base2+   "#eee8d5" :test 'equal)
+(a:define-constant +base3+   "#fdf6e3" :test 'equal)
+(a:define-constant +yellow+  "#b58900" :test 'equal)
+(a:define-constant +orange+  "#cb4b16" :test 'equal)
+(a:define-constant +red+     "#dc322f" :test 'equal)
+(a:define-constant +magenta+ "#d33682" :test 'equal)
+(a:define-constant +violet+  "#6c71c4" :test 'equal)
+(a:define-constant +blue+    "#268bd2" :test 'equal)
+(a:define-constant +cyan+    "#2aa198" :test 'equal)
+(a:define-constant +green+   "#859900" :test 'equal)
 
 (defun setup-solarized-dark ()
   "Configure StumpWM colors for Solarized Dark."
-  (stumpwm:set-fg-color +base0+)
-  (stumpwm:set-bg-color +base03+)
-  (stumpwm:set-border-color +base1+)
-  (stumpwm:set-focus-color +base3+)
-  (stumpwm:set-unfocus-color +base1+)
+  (swm:set-fg-color +base0+)
+  (swm:set-bg-color +base03+)
+  (swm:set-border-color +base1+)
+  (swm:set-focus-color +base3+)
+  (swm:set-unfocus-color +base1+)
 
-  (setf stumpwm:*mode-line-foreground-color* +base0+
-        stumpwm:*mode-line-background-color* +base03+
-        stumpwm:*mode-line-border-color* +base1+)
+  (setf swm:*mode-line-foreground-color* +base0+
+        swm:*mode-line-background-color* +base03+
+        swm:*mode-line-border-color* +base1+)
 
   ;; Set *colors*
   ;; ("black" "red" "green" "yellow" "blue" "magenta" "cyan" "white")
-  (setf stumpwm:*colors* (list +base0+
-                               +red+ +green+ +yellow+ +blue+ +magenta+ +cyan+
-                               +base03+))
-  (stumpwm:update-color-map (stumpwm:current-screen)))
+  (setf swm:*colors* (list +base0+
+                           +red+ +green+ +yellow+ +blue+ +magenta+ +cyan+
+                           +base03+))
+  (swm:update-color-map (swm:current-screen)))
 
 (defun setup-font ()
   (clx-truetype:cache-fonts)
-  (stumpwm:set-font (apply #'make-instance 'clx-truetype:font
-                           stumpwm.d/variables:*font*)))
+  (swm:set-font (apply #'make-instance 'clx-truetype:font vars:*font*)))

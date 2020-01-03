@@ -1,15 +1,15 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/lib/volume
+(defpackage :stumpwm.d/lib/volume
   (:documentation "Volume control via amixer(1).")
-  (:use #:cl)
+  (:use :cl)
   (:export
    #:*mixer-command*
    #:*output-channel*
    #:*microphone-channel*
    #:*volume-step*
    #:*volume-change-output-filter-cmd*))
-(in-package #:stumpwm.d/lib/volume)
+(in-package :stumpwm.d/lib/volume)
 
 (defvar *mixer-command* "amixer")
 (defvar *output-channel* "Master")

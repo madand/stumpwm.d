@@ -1,13 +1,13 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/lib/keyboard-dvorak
+(defpackage :stumpwm.d/lib/keyboard-dvorak
   (:documentation "Utilities for dealing with Programmer Dvorak layout.")
-  (:use #:cl)
-  (:local-nicknames (#:a #:alexandria))
+  (:use :cl)
+  (:local-nicknames (#:a :alexandria))
   (:export
    #:do-digits-row
    #:+digits-to-programmer-dvorak+))
-(in-package #:stumpwm.d/lib/keyboard-dvorak)
+(in-package :stumpwm.d/lib/keyboard-dvorak)
 
 (a:define-constant +digits-to-programmer-dvorak+
     '(("0" . "]")

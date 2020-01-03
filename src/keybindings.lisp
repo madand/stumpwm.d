@@ -1,20 +1,20 @@
 ;; -*- common-lisp-style: modern -*-
 
-(defpackage #:stumpwm.d/keybindings
+(defpackage :stumpwm.d/keybindings
   (:documentation "Main key bindings.")
-  (:use #:cl)
+  (:use :cl)
   (:local-nicknames
-   (#:a #:alexandria)
-   (#:swm #:stumpwm))
-  (:import-from #:stumpwm
+   (#:a :alexandria)
+   (#:swm :stumpwm))
+  (:import-from :stumpwm
                 #:*root-map*
                 #:kbd
                 #:define-key
                 #:*top-map*)
-  (:import-from #:stumpwm.d/lib/keyboard-dvorak)
-  (:import-from #:stumpwm.d/lib/volume)
-  (:import-from #:stumpwm.d/keybindings-apps))
-(in-package #:stumpwm.d/keybindings)
+  (:import-from :stumpwm.d/lib/keyboard-dvorak)
+  (:import-from :stumpwm.d/lib/volume)
+  (:import-from :stumpwm.d/keybindings-apps))
+(in-package :stumpwm.d/keybindings)
 
 (swm:set-prefix-key (kbd "s-SPC"))
 
