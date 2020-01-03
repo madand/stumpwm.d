@@ -78,11 +78,11 @@ Where name is a layout name as will be show to the user, layout and variant will
 be passed to setxkbmap(1) which see.
 
 Example:
-(configure-layouts '((\"Programmer Dvorak\" \"us\" \"dvp\")
+\(configure-layouts '((\"Programmer Dvorak\" \"us\" \"dvp\")
                      (\"QWERTY\" \"us\" \"\")))"
   (setf *layouts*
-        (loop for (name layout variant) in layouts-list
-           collect (make-keyboard-layout name layout variant))))
+        (loop :for (name layout variant) :in layouts-list
+              :collect (make-keyboard-layout name layout variant))))
 
 (defun find-next-layout (layout)
   "Return the layout that \"follows\" the given one in *LAYOUTS* ring."
@@ -94,7 +94,7 @@ Example:
 
 ;;;-----------------------------------------------------------------------------
 
-;; Create (window-kbdlayout win) and (setf (window-kbdlayout win) x)
+;; Generate (window-kbdlayout win) and (setf (window-kbdlayout win) x)
 (swm:define-window-slot "kbdlayout")
 
 (defun get-window-layout (win)
@@ -132,14 +132,14 @@ Returns the passed layout argument."
   (setf *current-layout* layout))
 
 (defun cycle-keyboard-layouts (win)
-  "Cycle between keyboard layouts for the given window (see `*layouts*')."
+  "Cycle keyboard layouts for the given window (see ‘*layouts*’)."
   (let* ((curr-layout (get-window-layout win))
          (new-layout (find-next-layout curr-layout)))
     (switch-to-layout new-layout)
     (setf (window-kbdlayout win) new-layout)))
 
 (swm:defcommand switch-keyboard-layout-current-window () ()
-  "Cycle between keyboard layouts for the current window (see `*layouts*')."
+  "Cycle between keyboard layouts for the current window (see ‘*layouts*’)."
   (cycle-keyboard-layouts (swm:current-window)))
 
 (defun focus-window-hook-handler (curr-win old-win)
