@@ -112,7 +112,7 @@ the configuration changes etc.), the default one will be set and returned."
 
 (defun colorize-layout-name (name)
   "Add color control sequences for echo'ing the given name."
-  (format nil "^74 ~a " name))
+  (format nil "^84 ~a " name))
 
 (defvar *setxkbmap-command-format* "setxkbmap ~a ~a ~a && ~a &")
 

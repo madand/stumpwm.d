@@ -83,7 +83,8 @@
   ;; ("black" "red" "green" "yellow" "blue" "magenta" "cyan" "white")
   (setf swm:*colors* (list +base0+
                            +red+ +green+ +yellow+ +blue+ +magenta+ +cyan+
-                           +base03+))
+                           +base03+
+                           "#ffffff" "#000000"))
   (swm:update-color-map (swm:current-screen)))
 
 (defun setup-font ()

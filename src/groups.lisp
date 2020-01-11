@@ -44,5 +44,4 @@ Each group is named after its number. See ‘*desired-groups-count*’."
         :do (swm:add-group screen (write-to-string n) :background t)))
 
 ;; Create 9 additional groups, since StumpWM creates the first one by itself.
-(when swm:*initializing*
-  (ensure-groups-count))
+(ensure-groups-count)

@@ -3,7 +3,7 @@
 (in-package #:stumpwm-user)
 
 ;;; ----------------------------------------------------------------------------
-;;; Command for starting a slynk REPL server.
+;;; Command for starting Slynk REPL server
 ;;; ----------------------------------------------------------------------------
 
 ;; We do this right here, rather than inside of the ‘stumpwm.d’ system, to
@@ -22,16 +22,26 @@
                  :dont-close t)
         (stumpwm:message "REPL started on localhost:~d" *repl-port*))
     (sb-bsd-sockets:address-in-use-error ()
-      (stumpwm:echo "REPL is aready running."))))
+      (stumpwm:message "REPL already running on localhost:~d" *repl-port*))))
 
-;;;-----------------------------------------------------------------------------
+;;; ----------------------------------------------------------------------------
+;;; Load ‘stumpwm.d’ system and cleanup environment variables
+;;; ----------------------------------------------------------------------------
+
+(defvar *qlot-unset-vars* '("CL_SOURCE_REGISTRY" "QUICKLISP_HOME" "ROS_OPTS"
+                            "SBCL_HOME")
+  "Environment variables to unset after initialization.
+
+Since StumpWM process is a parent of all user session processes, we need to
+unset these vars in order to prevent issues when starting other Lisp
+processes.")
 
 (unwind-protect
      (progn
-       ;; We need REPL should anything go wrong building the stumpwm.d system.
+       ;; Always start REPL.
        (start-repl)
        ;; Load a system with custom StumpWM configuration.
        (ql:quickload "stumpwm.d"))
   ;; Clean-up the environment after `ros qlot`.
-  (dolist (env-var '("CL_SOURCE_REGISTRY" "QUICKLISP_HOME" "ROS_OPTS"))
+  (dolist (env-var *qlot-unset-vars*)
     (sb-posix:unsetenv env-var)))
