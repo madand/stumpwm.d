@@ -6,23 +6,35 @@
 ;;; Command for starting Slynk REPL server
 ;;; ----------------------------------------------------------------------------
 
-;; We do this right here, rather than inside of the ‘stumpwm.d’ system, to
-;; ensure the REPL is always available.
+;; Initialize REPL right here, rather than inside of the ‘stumpwm.d’ system, to
+;; ensure it is always available.
 
-(defvar *repl-port* 4009
-  "Port to start the REPL socket on.")
+(defvar *repl-loaded-p* nil)
+
+(defun load-repl ()
+  (unless *repl-loaded-p*
+    (load "~/.stumpwm.d/repl-helper.lisp")
+    (setf *repl-loaded-p* t)))
+
+(stumpwm:defcommand reload-slynk () ()
+  "Reload Slynk server, presumably upgrading it."
+  (load-repl)
+  (handler-case
+      (when (uiop:symbol-call '#:repl-helper '#:load-slynk :force-reload t)
+        (stumpwm:message "Successfully reloaded Slynk."))
+    (error (c)
+      (dformat 0 "~a" c)
+      (stumpwm:message "Error reloading Slynk. Check logs."))))
 
 (stumpwm:defcommand start-repl () ()
   "Start REPL server on *REPL-PORT*."
-  (ql:quickload "slynk")
+  (load-repl)
   (handler-case
-      (progn
-        (funcall (intern (string '#:create-server) :slynk)
-                 :port *repl-port*
-                 :dont-close t)
-        (stumpwm:message "REPL started on localhost:~d" *repl-port*))
-    (sb-bsd-sockets:address-in-use-error ()
-      (stumpwm:message "REPL already running on localhost:~d" *repl-port*))))
+      (let ((port (uiop:symbol-call '#:repl-helper '#:start-slynk-repl)))
+        (stumpwm:message "Started REPL on localhost:~a" port))
+    (error (c)
+      (dformat 0 "~a" c)
+      (stumpwm:message "Error loading Slynk. Check the logs."))))
 
 ;;; ----------------------------------------------------------------------------
 ;;; Load ‘stumpwm.d’ system and cleanup environment variables
@@ -38,8 +50,12 @@ processes.")
 
 (unwind-protect
      (progn
-       ;; Always start REPL.
-       (start-repl)
+       ;; Always try to start the REPL.
+       (handler-case
+           (start-repl)
+         (error (c)
+           (dformat 0 "~a" c)
+           (stumpwm:message "Failed to start REPL.~%~a" c)))
        ;; Load a system with custom StumpWM configuration.
        (ql:quickload "stumpwm.d"))
   ;; Clean-up the environment after `ros qlot`.
