@@ -26,11 +26,20 @@ compatibility with `stumpwm::*new-head-hook*'."
 
 (when swm:*initializing*
   ;; Set desktop background.
-  (swm:run-shell-command (format nil "feh --bg-fill ~A" vars:*bg-image*))
+  (run-desktop-background-command)
   ;; Use pointer cursor, not the default X-shaped.
   (swm:run-shell-command "xsetroot -cursor_name left_ptr")
   ;; Load xmodmap(1) configuration.
   (swm:run-shell-command "xmodmap ~/.Xmodmap")
+  ;; Disable DPMS and Screen Blanking.
+  (swm:run-shell-command "xset s off -dpms")
+  ;; Mouse Sensitivity.
+  (swm:run-shell-command "xset m 2/1 1")
+  ;; Satrt Emacs after 6 seconds.
+  (swm:run-with-timer 6 nil #'swm:run-shell-command "emacs"))
 
+;; Refresh the desktop background to prevent artifacts when hot-connecting a
+;; monitor.
+(swm:add-hook swm:*new-head-hook* 'run-desktop-background-command)
 ;; picom seems to stop working correctly after monitor hot-plug.
 (swm:add-hook swm:*new-head-hook* 'restart-picom)
