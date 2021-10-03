@@ -80,7 +80,7 @@
         swm:*mode-line-border-color* +base1+)
 
   ;; Set *colors*
-  ;; ("black" "red" "green" "yellow" "blue" "magenta" "cyan" "white")
+  ;; ("bg" "red" "green" "yellow" "blue" "magenta" "cyan" "fg" "white" "black")
   (setf swm:*colors* (list +base0+
                            +red+ +green+ +yellow+ +blue+ +magenta+ +cyan+
                            +base03+

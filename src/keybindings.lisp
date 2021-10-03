@@ -18,6 +18,10 @@
 
 (swm:set-prefix-key (kbd "s-SPC"))
 
+;;; ----------------------------------------------------------------------------
+;;; Global shortcuts
+;;; ----------------------------------------------------------------------------
+
 (define-key *top-map* (kbd "s-TAB") "pull-hidden-other")
 (define-key *top-map* (kbd "s-j") "next")
 (define-key *top-map* (kbd "s-k") "prev")

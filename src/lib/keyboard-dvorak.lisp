@@ -22,7 +22,7 @@
       ("9" . "+"))
   :test 'equal
   :documentation
-  "Mapping between QWERTY digit keys to Programmer Dvorak counterparts..")
+  "Mapping from QWERTY digit keys to the Programmer Dvorak counterparts.")
 
 (defmacro do-digits-row ((qwerty-var dvorak-var &optional result-form)
                          &body body)

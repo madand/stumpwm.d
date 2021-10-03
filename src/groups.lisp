@@ -38,9 +38,7 @@
   "Add new groups to the SCREEN until we have the desired number of them.
 Each group is named after its number. See ‘*desired-groups-count*’."
   (loop :with existing-count := (existing-groups-count screen)
-        :with initial-index := (1+ existing-count)
-        :with last-index := *desired-groups-count*
-        :for n :from initial-index :upto last-index
+        :for n :from (1+ existing-count) :upto *desired-groups-count*
         :do (swm:add-group screen (write-to-string n) :background t)))
 
 ;; Create 9 additional groups, since StumpWM creates the first one by itself.

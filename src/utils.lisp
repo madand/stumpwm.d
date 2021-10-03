@@ -13,7 +13,7 @@
 
 (defun format-exec-in-terminal (command)
   "Build exec command with the terminal emulatior. See *TERMINAL-CMD*."
-  (format nil "exec ~A -e '~A'" *terminal-cmd* command))
+  (format nil "exec ~A ~A" *terminal-cmd* command))
 
 ;;; ----------------------------------------------------------------------------
 ;;; Simulation of mouse (rat) clicks

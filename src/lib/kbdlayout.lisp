@@ -94,7 +94,7 @@ Example:
 
 ;;;-----------------------------------------------------------------------------
 
-;; Generate (window-kbdlayout win) and (setf (window-kbdlayout win) x)
+;; Generate setf-able accessor named `window-kbdlayout'.
 (swm:define-window-slot "kbdlayout")
 
 (defun get-window-layout (win)

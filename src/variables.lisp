@@ -12,6 +12,7 @@
 
 ;;;; StumpWM's variables
 
+(setf stumpwm::*window-number-map* "1234567890")
 (setf stumpwm:*shell-program* "/bin/bash")
 (setf stumpwm:*window-border-style* :thin)
 (setf stumpwm:*mouse-focus-policy* :click)
@@ -22,11 +23,13 @@
 
 ;;;; Custom variables
 
-(defvar *font* '(:family "Iosevka SS09" :subfamily "Regular" :size 14)
+(defvar *font* '(:family "Iosevka Fixed SS09" :subfamily "Regular" :size 14)
   "Font specification as initargs for 'clx-truetype:font.")
 
-(defvar *terminal-cmd* "urxvt"
+(defvar *terminal-cmd* "kitty --single-instance"
   "Terminal emulator.")
 
-(defvar *bg-image* "~/media/PhoneCamera/OpenCamera/IMG_20190825_180322.jpg"
+;; (defvar *bg-image* "~/media/PhoneCamera/OpenCamera/IMG_20190825_180322.jpg"
+;;   "Desktop background image.")
+(defvar *bg-image* "~/wrk/cheatsheet/KB_Programmer_Dvorak.png"
   "Desktop background image.")

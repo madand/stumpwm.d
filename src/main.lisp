@@ -22,6 +22,7 @@
 ;;; ----------------------------------------------------------------------------
 
 (kbdlayout:configure-layouts '(("Programmer Dvorak" "us" "dvp")
+
                                ("QWERTY" "us" "")
                                ("Українська" "ua,us" ",dvp")))
 
